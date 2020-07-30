@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 50px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body ontouchstart>
+    <script>
+        (function (win) {
+            var doc = win.document,
+             html = doc.documentElement,
+             baseWidth = 750,
+             resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = html.clientWidth || 375;
+                html.style.fontSize = 100 * clientWidth / baseWidth + "px";
+                if (typeof customRecal == "function") {
+                    customRecal();
+                }
+            }
+            if(!doc.addEventListener) return ;
+            win.addEventListener(resizeEvt,recalc,false);
+            doc.addEventListener("DOMContentLoaded",recalc,false);
+        })(window)
+    </script>
+    <div class="container">
+            <div class="header">
+                <img src="./img/view.png" alt="" class="img_header">
+            </div>
+            <div class="content">
+                <div class="content_left">
+                   <ul class="nav">
+                       <li class="active" data-index="0">导航1</li>
+                       <li data-index="1">导航1</li>
+                       <li data-index="2">导航1</li>
+                       <li data-index="3">导航1</li>
+                   </ul>
+                </div>
+                <div class="content_right">
+                    <div class="scroll_content">
+                        <div class="scroll_box" id="scroll_box">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                            <img src="./img/1.jpg" alt="" class="img">
+                        </div>
+                        <div class="scroll_box" >
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                        </div>
+                        <div class="scroll_box" >
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                        </div>
+                        <div class="scroll_box">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                            <img src="./img/1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <ul class="footer_tab">
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                </ul>
+            </div>
+    </div>
+    <script type="text/javascript" src="https://i.gtimg.cn/channel/act/wallet/201911/qwish/js/zepto.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
