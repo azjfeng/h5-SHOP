@@ -2,22 +2,27 @@ var TAP = document.tap? "tap":"click";
 
 var page = {
     clickEvent:function(){
-        $('.nav').click(function(e){
+        var scroll = document.getElementsByClassName('scroll_content');
+
+        $('.nav').on(TAP,function(e){
             var index = e.target.dataset.index;
             $('.scroll_content').scrollTop(arr[index])
+            scroll.removeEventListener(TAP,page.scrollEvent,false)
             $('li').eq(index).addClass('active').siblings().removeClass('active')
         });
-        $('.scroll_content').scroll(function(e){
-            let scrollHight = $('.scroll_content').scrollTop()
-            var height1 = 0,height2=0;
-            for (var i = 0; i < arr.length; i++) {
-                height1 = arr[i];
-                height2 = arr[i+1];
-                if (!height2 || (scrollHight >= height1 && scrollHight < height2)) {
-                    $('li').eq(i).addClass('active').siblings().removeClass('active')
-                  }
-            }
-        })
+
+        scroll.addEventListener(TAP,page.scrollEvent,false)
+        // $('.scroll_content').on(TAP,function(){
+        //     let scrollHight = $('.scroll_content').scrollTop()
+        //     var height1 = 0,height2=0;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         height1 = arr[i];
+        //         height2 = arr[i+1];
+        //         if (!height2 || (scrollHight >= height1 && scrollHight < height2)) {
+        //             $('li').eq(i).addClass('active').siblings().removeClass('active')
+        //           }
+        //     }
+        // })
     },
     onReady:function(){
         var nodeList = document.querySelectorAll('.scroll_box');
@@ -33,6 +38,15 @@ var page = {
         return scrollArr
     },
     scrollEvent:function(){
+        let scrollHight = $('.scroll_content').scrollTop()
+        var height1 = 0,height2=0;
+        for (var i = 0; i < arr.length; i++) {
+            height1 = arr[i];
+            height2 = arr[i+1];
+            if (!height2 || (scrollHight >= height1 && scrollHight < height2)) {
+                $('li').eq(i).addClass('active').siblings().removeClass('active')
+              }
+        }
     }
 
 }
